@@ -10,7 +10,6 @@ const createTitle = () => {
 };
 
 createTitle();
-
 // criar a paleta de cor. Deve ser uma lista? Percorrer um array?
 // color o id color-palette
 // eu deveria criar uma div pra cada cor ou uma lista??? lista ficaria de um jeito especifico ne?
@@ -37,7 +36,6 @@ const createColor = () => {
 };
 
 createColor();
-
 // Requisito 2
 /* Adicione à página um quadro contendo 25 pixels, sendo que cada elemento do quadro de pixels possua 40 pixels de largura, 40 pixels de altura e seja delimitado por uma borda preta de 1 pixel */
 // Vou criar uma caixa e colocar quadradinhos dentro dela
@@ -65,7 +63,6 @@ const createPixels = () => {
 };
 
 createPixels();
-
 // Requisito 3
 
 // 1. Ao selecionar uma caixa, ela recebe a classe selected e retira da outra caixa
@@ -91,5 +88,24 @@ const selectColor = () => {
     color.addEventListener('click', receiveClick);
   }
 };
-
 selectColor();
+// Requisito 4
+
+// A caixinha selecionada, deve receber a cor que a pessoa usuária escolher
+
+function changeBackground(event) {
+  const elementoSelecionado = document.querySelector('.selected');
+  event.style.backgroundColor = elementoSelecionado.style.backgroundColor;
+}
+
+const changePixelColor = () => {
+  const pixelBox = document.getElementsByClassName('pixel');
+
+  for (let index = 0; index < pixelBox.length; index += 1) {
+    const pixelSquare = pixelBox[index];
+    pixelSquare.addEventListener('click', changeBackground);
+  }
+};
+
+changePixelColor();
+changeBackground();

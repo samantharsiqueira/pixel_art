@@ -66,3 +66,30 @@ const createPixels = () => {
 
 createPixels();
 
+// Requisito 3
+
+// 1. Ao selecionar uma caixa, ela recebe a classe selected e retira da outra caixa
+
+function receiveClick(event) {
+  const elementoSelecionado = document.querySelector('.selected');
+  if (elementoSelecionado) {
+    // remover a classe selected
+    elementoSelecionado.classList.remove('selected');
+  }
+
+  event.target.classList.add('selected');
+}
+const selectColor = () => {
+  // Retorna uma node list ou seja um array
+  const colors = document.getElementsByClassName('color');
+
+  // Percorrer o array de cores
+  for (let index = 0; index < colors.length; index += 1) {
+    const color = colors[index];
+    // Um evento para cada cor
+    // Event listener só funciona para 1 elemento
+    color.addEventListener('click', receiveClick);
+  }
+};
+
+selectColor();

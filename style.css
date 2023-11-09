@@ -1,0 +1,18 @@
+.color {
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+  background-color: red; /* A cor de fundo 
+  de cada elemento da paleta é a cor que o elemento representa */
+
+}
+
+#color-palette {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+body {
+  background-color: blue;
+}

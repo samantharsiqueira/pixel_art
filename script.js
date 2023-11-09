@@ -109,3 +109,35 @@ const changePixelColor = () => {
 };
 
 changePixelColor();
+
+// Requisito 5
+
+const createBtn = () => {
+  const buttonDiv = document.createElement('div');
+  buttonDiv.id = 'divBtn';
+  const button = document.createElement('button');
+  button.id = 'clear-board';
+  button.innerText = 'Limpar';
+  document.body.appendChild(buttonDiv);
+  buttonDiv.appendChild(button);
+  button.style.position = '10px';
+};
+
+function resetPixel() {
+  const pixelSquare = document.getElementsByClassName('pixel');
+  for (let index = 0; index < pixelSquare.length; index += 1) {
+    const pixel = pixelSquare[index];
+    pixel.style.backgroundColor = 'white';
+  }
+}
+function resetColor() {
+  const pixelBox = document.getElementsByClassName('pixel');
+  const resetButton = document.getElementById('clear-board');
+
+  for (let index = 0; index < pixelBox.length; index += 1) {
+    resetButton.addEventListener('click', resetPixel);
+  }
+}
+
+createBtn();
+resetColor();

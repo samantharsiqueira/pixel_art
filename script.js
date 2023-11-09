@@ -36,6 +36,20 @@ const createColor = () => {
 };
 
 createColor();
+
+const createBtn = () => {
+  const buttonDiv = document.createElement('div');
+  buttonDiv.id = 'divBtn';
+  const button = document.createElement('button');
+  button.id = 'clear-board';
+  button.innerText = 'Limpar';
+  document.body.appendChild(buttonDiv);
+  buttonDiv.appendChild(button);
+  button.style.position = '10px';
+};
+
+createBtn();
+
 // Requisito 2
 /* Adicione à página um quadro contendo 25 pixels, sendo que cada elemento do quadro de pixels possua 40 pixels de largura, 40 pixels de altura e seja delimitado por uma borda preta de 1 pixel */
 // Vou criar uma caixa e colocar quadradinhos dentro dela
@@ -112,16 +126,6 @@ changePixelColor();
 
 // Requisito 5
 
-const createBtn = () => {
-  const buttonDiv = document.createElement('div');
-  buttonDiv.id = 'divBtn';
-  const button = document.createElement('button');
-  button.id = 'clear-board';
-  button.innerText = 'Limpar';
-  document.body.appendChild(buttonDiv);
-  buttonDiv.appendChild(button);
-  button.style.position = '10px';
-};
 
 function resetPixel() {
   const pixelSquare = document.getElementsByClassName('pixel');
@@ -139,5 +143,5 @@ function resetColor() {
   }
 }
 
-createBtn();
+
 resetColor();

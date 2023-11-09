@@ -95,7 +95,8 @@ selectColor();
 
 function changeBackground(event) {
   const elementoSelecionado = document.querySelector('.selected');
-  event.style.backgroundColor = elementoSelecionado.style.backgroundColor;
+  const elementoClicado = event;
+  elementoClicado.target.style.backgroundColor = elementoSelecionado.style.backgroundColor;
 }
 
 const changePixelColor = () => {
@@ -108,4 +109,3 @@ const changePixelColor = () => {
 };
 
 changePixelColor();
-changeBackground();

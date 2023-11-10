@@ -113,7 +113,6 @@ function receiveClick(event) {
   }
 
   event.target.classList.add('selected'); // O evento de clique no lugar especifico adicionou a classe selected
-  // Pedir pra Amanda explicar melhor pra eu anotar melhor.
 }
 const selectColor = () => {
   // Retorna uma node list ou seja um array
@@ -132,12 +131,12 @@ selectColor();
 
 // A caixinha selecionada, deve receber a cor que a pessoa usuária escolher
 
+// eslint-disable-next-line max-lines-per-function
 function changeBackground(event) {
   const elementoSelecionado = document.querySelector('.selected');
   const elementoClicado = event;
   elementoClicado.target.style.backgroundColor = elementoSelecionado.style.backgroundColor; // adiciona a cor de fundo do elemento selecionado no espaco pixel que vc clicou
 }
-
 const changePixelColor = () => {
   const pixelBox = document.getElementsByClassName('pixel'); // Recuperando o quadradinho pra poder passar a nova cor de fundo
 
@@ -181,7 +180,7 @@ const colorRange = () => {
     const b = Math.random() * 255;
     const finalColor = `rgb(${r}, ${g}, ${b})`; // Concatenando a cor aleatoria - Seria esse o melhor jeito pra fazer?
     const colorIndex = initialColor[index];
-    colorIndex.style.backgroundColor = colorIndex.style.backgroundColor = finalColor;
+    colorIndex.style.backgroundColor = finalColor;
   }
 };
 
@@ -194,3 +193,31 @@ const randomColor = () => {
 };
 
 randomColor();
+
+// Requisito 7
+
+const savePixelBoard = () => {
+  const pixelClass = document.querySelectorAll('.pixel'); // Recuperar o quadradinho que eu vou alterar
+  const pixelArray = []; // criei um array vazio pra entrar a cor do index que vai aparecer no meu for
+  for (let index = 0; index < pixelClass.length; index += 1) {
+    const pixel = pixelArray[index];
+    const cor = pixel.style.backgroundColor;
+    pixelArray.push(cor); // Empurra pra dentro do array
+  }
+  localStorage.setItem('pixelBoard', JSON.stringify(pixelArray)); // Salva no local storage
+};
+
+savePixelBoard();
+
+const returnPixelBoard = () => {
+  const pixelClass = document.querySelectorAll('.pixel'); // Recuperar o quadradinho que eu vou alterar
+  const pixelBox = JSON.parse(localStorage.getItem('pixelBoard')); // recupera o que eu salvei no storage
+
+  for (let index = 0; index < pixelClass.length; index += 1) {
+    if (pixelBox !== null) { // se for diferente de branco
+      pixelClass[index].style.background = pixelBox[index]; // retorna o que estava anteriormente
+    }
+  }
+};
+
+returnPixelBoard();

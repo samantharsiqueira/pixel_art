@@ -20,7 +20,7 @@ const createColor = () => {
   document.body.appendChild(colorPalette);
 
   // criar um array com as cores e colocar a classe color nelas
-  const colorsArray = ['blue', 'green', 'red', 'yellow'];
+  const colorsArray = ['brown', 'black', 'red', 'green'];
   for (let index = 0; index < colorsArray.length; index += 1) {
     const colorList = document.createElement('div'); // enquanto percorre o array ele criou uma div pra cada cor
     colorList.classList.add('color'); // e adicionou a classe cor pra cada div criada do array
@@ -128,7 +128,7 @@ const selectColor = () => {
 };
 selectColor();
 
-// Requisito 7 pra nao dar erro 
+// Requisito 7 pra nao dar erro
 const savePixelBoard = () => {
   const pixelClass = document.getElementsByClassName('pixel'); // Recuperar o quadradinho que eu vou alterar
   const pixelArray = []; // criei um array vazio pra entrar a cor do index que vai aparecer no meu for
@@ -146,9 +146,8 @@ function changeBackground(event) {
   const elementoSelecionado = document.querySelector('.selected');
   const elementoClicado = event;
   elementoClicado.target.style.backgroundColor = elementoSelecionado.style.backgroundColor; // adiciona a cor de fundo do elemento selecionado no espaco pixel que vc clicou
-  
-  savePixelBoard();
 
+  savePixelBoard();
 }
 const changePixelColor = () => {
   const pixelBox = document.getElementsByClassName('pixel'); // Recuperando o quadradinho pra poder passar a nova cor de fundo
@@ -209,7 +208,6 @@ randomColor();
 
 // Requisito 7
 
-
 const returnPixelBoard = () => {
   const pixelClass = document.getElementsByClassName('pixel'); // Recuperar o quadradinho que eu vou alterar
   const pixelBox = JSON.parse(localStorage.getItem('pixelBoard')); // recupera o que eu salvei no storage
@@ -223,3 +221,7 @@ const returnPixelBoard = () => {
 };
 
 returnPixelBoard();
+
+// Requisito 8
+     
+     

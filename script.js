@@ -223,5 +223,3 @@ const returnPixelBoard = () => {
 returnPixelBoard();
 
 // Requisito 8
-     
-     
